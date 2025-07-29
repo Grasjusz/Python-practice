@@ -1,4 +1,29 @@
-AnchorLayoutExample:
+StackLayoutExample:
+
+
+<StackLayoutExample>:
+    #orientation: "rl-bt"
+    #padding: ("20dp", "20dp", "20dp", "20dp")
+    #spacing: "20dp", "20dp"
+
+<GridLayoutExample@GridLayout>:
+    #cols: 4
+    rows: 2
+    Button:
+        text: "A"
+        size_hint: None, 1
+        width: "60dp"
+    BoxLayoutExample:
+    Button:
+        text: "C"
+    Button:
+        text: "D"
+        size_hint: None, 1
+        width: "60dp"
+    Button:
+        text: "E"
+    Button:
+        text: "F"
 
 <AnchorLayoutExample>:
     anchor_x: "center"
