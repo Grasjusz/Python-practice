@@ -1,9 +1,10 @@
-PageLayoutExample:
+BoxLayoutExample:
 
 <PageLayoutExample@PageLayout>:
     MainWidget:
     BoxLayoutExample:
     AnchorLayoutExample:
+    GridLayoutExample:
 
 <StackLayoutExample>:
     #orientation: "rl-bt"
@@ -40,17 +41,18 @@ PageLayoutExample:
             text: "B"
 
 <BoxLayoutExample>:
-    orientation: "horizontal"
+    orientation: "vertical"
     Button:
-        text: "One"
-        size_hint: .5, .5
+        text: "Choose your number or go with IT"
+        size_hint: .8, .5
         # size: "100dp", "60dp"
         # width: "100dp"
         # height: "50dp"
-        pos_hint: {"center_y": .5}
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        spacing: "20dp"
 
     BoxLayout:
-        orientation: "vertical"
+        orientation: "horizontal"
         spacing: "20dp"
         Button:
             text: "Button Two"
