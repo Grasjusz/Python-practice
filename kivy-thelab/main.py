@@ -1,7 +1,7 @@
 from kivy.app import App
-from kivy.graphics import Line, Color, Rectangle
+from kivy.graphics import Line, Color, Rectangle, Ellipse
 from kivy.metrics import dp
-from kivy.properties import StringProperty, BooleanProperty
+from kivy.properties import StringProperty, BooleanProperty, Clock
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
@@ -112,6 +112,30 @@ class CanvasExample4(Widget):
         x += inc
         self.rect.pos = (x, y)
 
+class CanvasExample5(Widget):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.ball_size = dp(50)
+        self.vx = dp(3)
+        self.vy = dp(3)
+        with self.canvas:
+            self.ball = Ellipse(pos = self.center, size = (dp(50), dp(50)))
+        Clock.schedule_interval(self.update, 2/60)
 
+    def on_size(self, *args):
+        print("On size: " + str(self.width) + ", " + str(self.height))
+        self.ball.pos = (self.center_x-self.ball_size/2, self.center_y-self.ball_size/2)
+
+    def update(self,dt):
+        #print("update")
+        x, y = self.ball.pos
+        x += self.vx
+        y += self.vy
+
+        # self.ball_size / self.width
+        # self.vx = - self.vx
+        # 2:21
+
+        self.ball.pos = (x, y)
 
 TheLabApp().run()
