@@ -116,8 +116,8 @@ class CanvasExample5(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.ball_size = dp(50)
-        self.vx = dp(3)
-        self.vy = dp(3)
+        self.vx = dp(5)
+        self.vy = dp(5)
         with self.canvas:
             self.ball = Ellipse(pos = self.center, size = (dp(50), dp(50)))
         Clock.schedule_interval(self.update, 2/60)
@@ -134,7 +134,21 @@ class CanvasExample5(Widget):
 
         # self.ball_size / self.width
         # self.vx = - self.vx
-        # 2:21
+        if y + self.ball_size > self.height:
+            y = self.height-self.ball_size
+            self.vy = -self.vy
+        if x + self.ball_size > self.width:
+            x = self.width - self.ball_size
+            self.vx = -self.vx
+        if y < 0:
+            y = 0
+            self.vy = - self.vy
+        if x < 0:
+            x = 0
+            self.vx = -self.vx
+
+        #2:23
+
 
         self.ball.pos = (x, y)
 
