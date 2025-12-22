@@ -152,6 +152,8 @@ class CanvasExample5(Widget):
 
 class CanvasExample6(Widget):
     pass
-    #2:29
+
+class CanvasExample7(BoxLayout):
+    pass
 
 TheLabApp().run()
