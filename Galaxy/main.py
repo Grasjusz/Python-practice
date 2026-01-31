@@ -259,7 +259,7 @@ class MainWidget(Widget):
         if not self.check_ship_collision():
             print("GAME OVER")
 
-# 4:21
+# 4:58
 class GalaxyApp(App):
     pass
 
